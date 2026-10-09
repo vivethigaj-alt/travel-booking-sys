@@ -1,0 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sign in | Meghu Travels</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"></head>
+<body class="auth-page"><a class="brand auth-brand" href="${pageContext.request.contextPath}/"><span class="brand-mark">M</span> meghu<span>travels</span></a>
+<main class="auth-card"><a class="back-link" href="${pageContext.request.contextPath}/">← Back to home</a><span class="eyebrow">WELCOME BACK</span><h1>Good to see you.</h1><p>Sign in to pick up where your journey begins.</p>
+<c:if test="${not empty error}"><div class="alert alert-error"><c:out value="${error}"/></div></c:if><c:if test="${param.registered eq '1'}"><div class="alert alert-success">Your account is ready. Please sign in.</div></c:if>
+<form action="${pageContext.request.contextPath}/login" method="post" class="form-stack"><label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="190"></label><label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Your password" required maxlength="72"></label><button class="button button-full" type="submit">Sign in <span aria-hidden="true">→</span></button></form>
+<p class="auth-switch">New to Meghu Travels? <a href="${pageContext.request.contextPath}/register.html">Create an account</a></p></main><div class="auth-decoration"><span>“</span><p>The best part of any trip<br>is the journey there.</p><small>MAKE YOUR NEXT ONE COUNT</small></div></body></html>

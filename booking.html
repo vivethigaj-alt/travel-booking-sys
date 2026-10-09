@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Plan a Meghu Holidays trip. Enter your contact details, dates, destination, and passengers.">
+    <title>Plan your trip | Meghu Holidays</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">M</span> meghu<span>holidays</span></a>
+    <nav class="main-nav"><a href="cars">Our cars</a><a href="index.html">Home</a></nav>
+</header>
+<main class="booking-layout booking-page">
+    <section class="booking-copy">
+        <span class="eyebrow">MEGHU HOLIDAYS · TRIP ENQUIRY</span>
+        <h1>Let’s plan<br>your journey.</h1>
+        <p>your dream is our destination. Share your travel dates and destination, and we’ll have everything ready for your enquiry.</p>
+        <a class="text-link" href="cars">← Browse all cars</a>
+    </section>
+    <section class="booking-form-card">
+        <h2>Your trip details</h2>
+        <p>Fill in the details below. Trip length updates when you select your dates.</p>
+        <form id="trip-enquiry-form" class="form-stack">
+            <label>Choose a vehicle
+                <select id="vehicle" name="vehicle" required>
+                    <option value="">Select a vehicle</option>
+                    <option>Innova Crysta</option>
+                    <option>Crysta</option>
+                    <option>Meghu Traveller</option>
+                    <option>Etios</option>
+                    <option>Holiday Coach</option>
+                    <option>Urbania</option>
+                </select>
+            </label>
+            <div class="form-row">
+                <label>Your name<input name="customerName" autocomplete="name" placeholder="Full name" maxlength="100" required></label>
+                <label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" minlength="7" maxlength="20" required></label>
+            </div>
+            <div class="form-row">
+                <label>Pickup date<input id="start-date" name="startDate" type="date" required></label>
+                <label>Drop date<input id="drop-date" name="dropDate" type="date" required></label>
+            </div>
+            <label>Number of days<input id="trip-days" name="tripDays" type="text" value="Choose travel dates" readonly aria-live="polite"></label>
+            <div class="form-row">
+                <label>Pickup location<input name="pickup" placeholder="Where should we meet?" maxlength="180" required></label>
+                <label>Destination<input name="destination" placeholder="Where are you going?" maxlength="180" required></label>
+            </div>
+            <label>Number of passengers<input name="passengers" type="number" min="1" max="50" value="1" required></label>
+            <button class="button button-full" type="submit">Review enquiry <span aria-hidden="true">→</span></button>
+        </form>
+        <section id="enquiry-review" class="enquiry-review" aria-live="polite" hidden>
+            <span class="eyebrow">ENQUIRY SUMMARY</span>
+            <h2>Check your trip details</h2>
+            <dl id="enquiry-summary" class="enquiry-summary"></dl>
+            <p class="review-note">Your trip details are shown above. Contact Meghu Holidays to confirm availability and pricing.</p>
+            <button id="edit-enquiry" class="button button-outline button-small" type="button">Edit details</button>
+        </section>
+    </section>
+</main>
+<footer class="site-footer">
+    <a class="brand brand-light" href="index.html"><span class="brand-mark">M</span> meghu<span>holidays</span></a>
+    <span>your dream is our destination</span><span>© 2026 Meghu Holidays</span>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Book your ride | Meghu Holidays</title><link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"></head>
+<body><header class="site-header"><a class="brand" href="${pageContext.request.contextPath}/"><span class="brand-mark">M</span> meghu<span>holidays</span></a><nav class="main-nav"><a href="${pageContext.request.contextPath}/cars">Our cars</a><a href="${pageContext.request.contextPath}/my-bookings">My bookings</a></nav></header>
+<main class="booking-layout"><section class="booking-copy"><span class="eyebrow">THE GOOD PART STARTS HERE</span><h1>Let’s plan<br>your journey.</h1><p>your dream is our destination. Share a few details and we’ll get your ride request on its way.</p><a class="text-link" href="${pageContext.request.contextPath}/cars">← Browse all cars</a></section>
+<section class="booking-form-card"><h2>Your trip details</h2><p>Tell us where and when you’re headed.</p><c:if test="${not empty error}"><div class="alert alert-error"><c:out value="${error}"/></div></c:if>
+<form action="${pageContext.request.contextPath}/booking" method="post" class="form-stack">
+<label>Choose a car<select name="carId" required><option value="">Select a vehicle</option><c:forEach var="car" items="${cars}"><option value="${car.id}" <c:if test="${selectedCarId eq car.id}">selected</c:if>><c:out value="${car.name}"/> — ₹<c:out value="${car.pricePerDay}"/> / day (<c:out value="${car.seats}"/> seats)</option></c:forEach></select></label>
+<div class="form-row"><label>Pickup date<input type="date" name="startDate" min="<c:out value='${minDate}'/>" required></label><label>Return date<input type="date" name="endDate" min="<c:out value='${minDate}'/>" required></label></div>
+<div class="form-row"><label>Pickup location<input type="text" name="pickup" placeholder="Where should we meet?" maxlength="180" required></label><label>Destination<input type="text" name="destination" placeholder="Where are you going?" maxlength="180" required></label></div>
+<label>Passengers<input type="number" name="passengers" min="1" max="50" value="1" required></label>
+<div class="notice-box">Your booking will be created as <strong>pending</strong>. An administrator will confirm it and can assign a driver.</div>
+<button class="button button-full" type="submit">Request this ride <span aria-hidden="true">→</span></button></form></section></main>
+<footer class="site-footer"><a class="brand brand-light" href="${pageContext.request.contextPath}/"><span class="brand-mark">M</span> meghu<span>holidays</span></a><span>your dream is our destination</span><span>© 2026 Meghu Holidays</span></footer><script src="${pageContext.request.contextPath}/js/script.js"></script></body></html>
